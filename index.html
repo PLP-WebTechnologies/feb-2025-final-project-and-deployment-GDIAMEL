@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover, learn, and connect with our modern multipage website.">
+    <meta name="keywords" content="modern, website, learn, connect, services, testimonials">
+    <meta name="author" content="Your Name">
+    <title>Modern Multipage Website</title>
+    
+    <style> 
+        /* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background: #007bff;
+    color: white;
+}
+
+.hero button {
+    background: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.contact-form button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Website</h1>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h2>Discover, Learn & Connect</h2>
+            <p>Your go-to platform for information and interaction.</p>
+            <button id="learn-more-btn" aria-label="Learn more about us">Learn More</button>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are passionate about providing valuable information and creating meaningful connections.</p>
+            <img src="about.jpg" alt="About us image">
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li><strong>Web Development:</strong> Custom websites tailored to your needs.</li>
+                <li><strong>SEO Optimization:</strong> Helping you rank higher on search engines.</li>
+                <li><strong>Digital Marketing:</strong> Engaging strategies to boost your online presence.</li>
+            </ul>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Users Say</h2>
+            <blockquote>
+                <p>"This platform completely transformed my learning experience!" – Alex</p>
+            </blockquote>
+            <blockquote>
+                <p>"Highly recommended for anyone looking to grow their online presence." – Maria</p>
+            </blockquote>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Modern Website | All rights reserved.</p>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const contactForm = document.getElementById("contactForm");
+    
+        if (contactForm) {
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+    
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const message = document.getElementById("message").value.trim();
+    
+                if (!name || !email || !message) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+    
+                if (!validateEmail(email)) {
+                    alert("Enter a valid email address.");
+                    return;
+                }
+    
+                alert("Your message has been sent!");
+                contactForm.reset();
+            });
+        }
+    
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+    });
+    
+    // Scroll to Section Function
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+    }
+    </script>
+</body>
+</html>
